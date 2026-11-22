@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Weather Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+
+      <!-- ── Header ── -->
+      <header class="header">
+        <div class="header-inner">
+          <div class="logo">
+            <span class="logo-icon">🌤</span>
+            <span class="logo-text">WeatherNow</span>
+          </div>
+          <p class="tagline">Real-time weather, anywhere on Earth</p>
+        </div>
+      </header>
+
+      <!-- ── Search ── -->
+      <main class="main">
+        <section class="search-section">
+          <form id="form" class="search-form" novalidate>
+            <div class="input-wrap">
+              <span class="input-icon">🔍</span>
+              <input
+                type="text"
+                id="city"
+                class="search-input"
+                placeholder="Search a city…"
+                autocomplete="off"
+                spellcheck="false"
+              />
+            </div>
+            <button type="submit" id="search-btn" class="search-btn">
+              <span class="btn-label">Search</span>
+              <span class="btn-spinner" aria-hidden="true"></span>
+            </button>
+          </form>
+
+          <!-- Status / error banner -->
+          <div id="status" class="status hidden" role="alert" aria-live="polite"></div>
+        </section>
+
+        <!-- ── Current weather card ── -->
+        <section id="current-section" class="current-section hidden">
+          <div class="current-card">
+            <div class="current-top">
+              <div class="current-location">
+                <span id="current-city" class="city-name"></span>
+                <span id="current-country" class="country-badge"></span>
+              </div>
+              <div id="current-date" class="current-date"></div>
+            </div>
+
+            <div class="current-body">
+              <div class="temp-block">
+                <div id="current-emoji" class="weather-emoji"></div>
+                <div id="current-temp" class="current-temp"></div>
+              </div>
+              <div class="current-meta">
+                <div id="current-label" class="condition-label"></div>
+                <div class="meta-row">
+                  <span class="meta-item">
+                    <span class="meta-icon">🌡</span>
+                    <span>Feels like —</span>
+                  </span>
+                </div>
+                <div class="meta-row">
+                  <span class="meta-item" id="current-wind-wrap">
+                    <span class="meta-icon">💨</span>
+                    <span id="current-wind">— km/h</span>
+                  </span>
+                  <span class="meta-item" id="current-humidity-wrap">
+                    <span class="meta-icon">💧</span>
+                    <span id="current-humidity">—%</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── 5-day forecast ── -->
+        <section id="forecast-section" class="forecast-section hidden">
+          <h2 class="forecast-heading">5-Day Forecast</h2>
+          <div id="forecast-grid" class="forecast-grid"></div>
+        </section>
+
+        <!-- ── Empty / skeleton placeholder ── -->
+        <section id="empty-section" class="empty-section">
+          <div class="empty-graphic">🌍</div>
+          <p class="empty-title">Search for any city</p>
+          <p class="empty-sub">Type a city name above and hit Search to see live weather.</p>
+        </section>
+      </main>
+
+      <footer class="footer">
+        Powered by <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a>
+        &nbsp;•&nbsp; Data updates every 15 minutes
+      </footer>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
